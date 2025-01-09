@@ -1,29 +1,27 @@
 {
-    "name": ":vendor_slug/:package_slug",
-    "description": ":package_description",
+    "name": "heleyboo/advanced-filament-widgets",
+    "description": "This is my package advanced-filament-widgets",
     "keywords": [
-        ":vendor_name",
+        "heleyboo",
         "laravel",
-        ":package_slug"
+        "advanced-filament-widgets"
     ],
-    "homepage": "https://github.com/:vendor_slug/:package_slug",
+    "homepage": "https://github.com/heleyboo/advanced-filament-widgets",
     "support": {
-        "issues": "https://github.com/:vendor_slug/:package_slug/issues",
-        "source": "https://github.com/:vendor_slug/:package_slug"
+        "issues": "https://github.com/heleyboo/advanced-filament-widgets/issues",
+        "source": "https://github.com/heleyboo/advanced-filament-widgets"
     },
     "license": "MIT",
     "authors": [
         {
-            "name": ":author_name",
-            "email": "author@domain.com",
+            "name": "Đỗ Văn Hoan",
+            "email": "vanhoan90it6@gmail.com",
             "role": "Developer"
         }
     ],
     "require": {
         "php": "^8.1",
         "filament/filament": "^3.0",
-        "filament/forms": "^3.0",
-        "filament/tables": "^3.0",
         "spatie/laravel-package-tools": "^1.15.0"
     },
     "require-dev": {
@@ -41,13 +39,12 @@
     },
     "autoload": {
         "psr-4": {
-            "VendorName\\Skeleton\\": "src/",
-            "VendorName\\Skeleton\\Database\\Factories\\": "database/factories/"
+            "Heleyboo\\AdvancedFilamentWidgets\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "VendorName\\Skeleton\\Tests\\": "tests/"
+            "Heleyboo\\AdvancedFilamentWidgets\\Tests\\": "tests/"
         }
     },
     "scripts": {
@@ -67,10 +64,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "VendorName\\Skeleton\\SkeletonServiceProvider"
+                "Heleyboo\\AdvancedFilamentWidgets\\AdvancedFilamentWidgetsServiceProvider"
             ],
             "aliases": {
-                "Skeleton": "VendorName\\Skeleton\\Facades\\Skeleton"
+                "AdvancedFilamentWidgets": "Heleyboo\\AdvancedFilamentWidgets\\Facades\\AdvancedFilamentWidgets"
             }
         }
     },

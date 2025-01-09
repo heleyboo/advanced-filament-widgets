@@ -1,15 +1,15 @@
 <?php
 
-namespace VendorName\Skeleton;
+namespace Heleyboo\AdvancedFilamentWidgets;
 
 use Filament\Contracts\Plugin;
 use Filament\Panel;
 
-class SkeletonPlugin implements Plugin
+class AdvancedFilamentWidgetsPlugin implements Plugin
 {
     public function getId(): string
     {
-        return 'skeleton';
+        return 'advanced-filament-widgets';
     }
 
     public function register(Panel $panel): void
