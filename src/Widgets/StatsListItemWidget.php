@@ -56,15 +56,13 @@ class StatsListItemWidget extends Widget
                 ->ratioColor(Color::Green)
                 ->ratioIcon('heroicon-s-chevron-up', IconPosition::Before)
                 ->descriptionIcon('heroicon-s-currency-dollar', IconPosition::After)
-                ->showProgress()
-            ,
+                ->showProgress(),
             StatItem::make('Brazil', '$25k', '35%')
                 ->icon(asset('https://demos.pixinvent.com/vuexy-html-admin-template/assets/vendor/fonts/flags/1x1/br.svg'))
                 ->roundedIcon()
                 ->ratioColor(Color::Red)
                 ->ratioIcon('heroicon-s-chevron-down', IconPosition::Before)
-                ->descriptionIcon('heroicon-s-currency-dollar', IconPosition::After)
-            ,
+                ->descriptionIcon('heroicon-s-currency-dollar', IconPosition::After),
         ];
     }
 }
