@@ -12,11 +12,11 @@ use Filament\Notifications\NotificationsServiceProvider;
 use Filament\Support\SupportServiceProvider;
 use Filament\Tables\TablesServiceProvider;
 use Filament\Widgets\WidgetsServiceProvider;
+use Heleyboo\AdvancedFilamentWidgets\AdvancedFilamentWidgetsServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Livewire\LivewireServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 use RyanChandler\BladeCaptureDirective\BladeCaptureDirectiveServiceProvider;
-use Heleyboo\AdvancedFilamentWidgets\AdvancedFilamentWidgetsServiceProvider;
 
 class TestCase extends Orchestra
 {
