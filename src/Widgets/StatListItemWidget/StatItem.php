@@ -3,15 +3,14 @@
 namespace Heleyboo\AdvancedFilamentWidgets\Widgets\StatListItemWidget;
 
 use Closure;
+use Filament\Support\Components\ViewComponent;
 use Filament\Support\Concerns\Macroable;
 use Filament\Support\Enums\IconPosition;
 use Illuminate\Contracts\Support\Htmlable;
-use Illuminate\Contracts\View\View;
 use Illuminate\Support\Str;
-use Illuminate\View\Component;
 use Illuminate\View\ComponentAttributeBag;
 
-class StatItem extends Component implements Htmlable
+class StatItem extends ViewComponent implements Htmlable
 {
     use Macroable;
 
@@ -53,6 +52,8 @@ class StatItem extends Component implements Htmlable
     protected ?string $url = null;
 
     protected ?string $id = null;
+
+    protected string $view = 'advanced-filament-widgets::widgets.stats-list-item-widget.stat-item';
 
     /**
      * @var scalar | Htmlable | Closure
@@ -308,10 +309,5 @@ class StatItem extends Component implements Htmlable
     public function toHtml(): string
     {
         return $this->render()->render();
-    }
-
-    public function render(): View
-    {
-        return view('advanced-filament-widgets::widgets.stats-list-item-widget.stat-item', $this->data());
     }
 }
