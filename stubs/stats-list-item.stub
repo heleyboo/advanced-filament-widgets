@@ -3,35 +3,48 @@
 namespace {{ namespace }};
 
 use Filament\Support\Colors\Color;
-use Filament\Support\Enums\IconPosition;
 use Heleyboo\AdvancedFilamentWidgets\Widgets\StatListItemWidget\StatItem;
 use Heleyboo\AdvancedFilamentWidgets\Widgets\StatsListItemWidget;
 
 class {{ class }} extends StatsListItemWidget
 {
-    public ?string $heading = 'My Widget';
-    public ?string $description = 'This is a custom widget';
+    public ?string $heading = 'Active Projects';
+    public ?string $description = 'Average 72% Completed';
+    protected int | string | array $columnSpan = 5;
+
     public function getStatItems(): array
-        {
-            return [
-                StatItem::make('United states', '$105k', 30)
-                    ->icon(asset('https://demos.pixinvent.com/vuexy-html-admin-template/assets/vendor/fonts/flags/1x1/us.svg'))
-                    ->descriptionColor(Color::Indigo)
-                    ->roundedIcon()
-                    ->ratioColor(Color::Green)
-                    ->ratioIcon('heroicon-s-chevron-up', IconPosition::Before)
-                    ->descriptionIcon('heroicon-s-currency-dollar', IconPosition::After)
-                    ->showProgress()
-                    ->progressColor(Color::Red)
-                ,
-                StatItem::make('Brazil', '$25k', 80)
-                    ->icon(asset('https://demos.pixinvent.com/vuexy-html-admin-template/assets/vendor/fonts/flags/1x1/br.svg'))
-                    ->roundedIcon()
-                    ->ratioColor(Color::Red)
-                    ->ratioIcon('heroicon-s-chevron-down', IconPosition::Before)
-                    ->descriptionIcon('heroicon-s-currency-dollar', IconPosition::After)
-                    ->showProgress()
-                ,
-            ];
-        }
+    {
+        return [
+            StatItem::make('eCommerce', 'Laravel', 65)
+                ->icon(asset('https://demos.pixinvent.com/vuexy-html-admin-template/assets/img/icons/brands/laravel-logo.png'))
+                ->showProgress()
+                ->progressColor(Color::Red)
+            ,
+            StatItem::make('App UI Kit', 'Figma', 86)
+                ->icon(asset('https://demos.pixinvent.com/vuexy-html-admin-template/assets/img/icons/brands/figma-logo.png'))
+                ->showProgress()
+                ->progressColor(Color::Purple)
+            ,
+            StatItem::make('Calendar App', 'VueJs', 90)
+                ->icon(asset('https://demos.pixinvent.com/vuexy-html-admin-template/assets/img/icons/brands/vue-logo.png'))
+                ->showProgress()
+                ->progressColor(Color::Green)
+            ,
+            StatItem::make('Dashboard', 'React', 37)
+                ->icon(asset('https://demos.pixinvent.com/vuexy-html-admin-template/assets/img/icons/brands/react-logo.png'))
+                ->showProgress()
+                ->progressColor(Color::Blue)
+            ,
+            StatItem::make('Website', 'Bootstrap', 22)
+                ->icon(asset('https://demos.pixinvent.com/vuexy-html-admin-template/assets/img/icons/brands/bootstrap-logo.png'))
+                ->showProgress()
+                ->progressColor(Color::Blue)
+            ,
+            StatItem::make('Website Design', 'Sketch', 29)
+                ->icon(asset('https://demos.pixinvent.com/vuexy-html-admin-template/assets/img/icons/brands/sketch-logo.png'))
+                ->showProgress()
+                ->progressColor(Color::Orange)
+            ,
+        ];
+    }
 }
