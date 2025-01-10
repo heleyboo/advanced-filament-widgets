@@ -34,6 +34,7 @@ class StatItem extends Component implements Htmlable
      */
     protected string | array | null $descriptionColor = null;
     protected string | array | null $ratioColor = null;
+    protected string | array | null $progressColor = null;
     protected bool $roundedIcon = false;
     protected bool $showProgress = false;
 
@@ -148,6 +149,16 @@ class StatItem extends Component implements Htmlable
     }
 
     /**
+     * @param  string | array{50: string, 100: string, 200: string, 300: string, 400: string, 500: string, 600: string, 700: string, 800: string, 900: string, 950: string} | null  $color
+     */
+    public function progressColor(string | array | null $color): static
+    {
+        $this->progressColor = $color;
+
+        return $this;
+    }
+
+    /**
      * @param  array<string, scalar>  $attributes
      */
     public function extraAttributes(array $attributes): static
@@ -223,6 +234,14 @@ class StatItem extends Component implements Htmlable
     public function getRatioColor(): string | array | null
     {
         return $this->ratioColor ?? $this->color;
+    }
+
+    /**
+     * @return string | array{50: string, 100: string, 200: string, 300: string, 400: string, 500: string, 600: string, 700: string, 800: string, 900: string, 950: string} | null
+     */
+    public function getProgressColor(): string | array | null
+    {
+        return $this->progressColor ?? $this->ratioColor;
     }
 
     public function getDescriptionIconPosition(): IconPosition | string

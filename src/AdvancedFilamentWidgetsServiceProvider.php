@@ -2,8 +2,9 @@
 
 namespace Heleyboo\AdvancedFilamentWidgets;
 
-use Filament\Support\Assets\Css;
+use Filament\Support\Assets\Asset;
 use Filament\Support\Facades\FilamentAsset;
+use Heleyboo\AdvancedFilamentWidgets\Commands\StatsListItemWidgetCommand;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
@@ -20,7 +21,9 @@ class AdvancedFilamentWidgetsServiceProvider extends PackageServiceProvider
          *
          * More info: https://github.com/spatie/laravel-package-tools
          */
-        $package->name(static::$name)
+        $package
+            ->name(static::$name)
+            ->hasCommands($this->getCommands())
             ->hasViews(static::$viewNamespace);
 
     }
@@ -29,8 +32,29 @@ class AdvancedFilamentWidgetsServiceProvider extends PackageServiceProvider
 
     public function packageBooted(): void
     {
-        FilamentAsset::register([
-            Css::make('headings', __DIR__ . '/../resources/dist/headings.css')->loadedOnRequest(),
-        ], 'heleyboo/advanced-filament-widgets');
+        FilamentAsset::register($this->getAssets(), $this->getAssetPackageName());
+    }
+
+    /**
+     * @return array<Asset>
+     */
+    protected function getAssets(): array
+    {
+        return [];
+    }
+
+    protected function getAssetPackageName(): ?string
+    {
+        return 'heleyboo/advanced-filament-widgets';
+    }
+
+    /**
+     * @return array<class-string>
+     */
+    protected function getCommands(): array
+    {
+        return [
+            StatsListItemWidgetCommand::class,
+        ];
     }
 }

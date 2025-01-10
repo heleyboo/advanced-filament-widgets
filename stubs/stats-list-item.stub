@@ -1,0 +1,37 @@
+<?php
+
+namespace {{ namespace }};
+
+use Filament\Support\Colors\Color;
+use Filament\Support\Enums\IconPosition;
+use Heleyboo\AdvancedFilamentWidgets\Widgets\StatListItemWidget\StatItem;
+use Heleyboo\AdvancedFilamentWidgets\Widgets\StatsListItemWidget;
+
+class {{ class }} extends StatsListItemWidget
+{
+    public ?string $heading = 'My Widget';
+    public ?string $description = 'This is a custom widget';
+    public function getStatItems(): array
+        {
+            return [
+                StatItem::make('United states', '$105k', 30)
+                    ->icon(asset('https://demos.pixinvent.com/vuexy-html-admin-template/assets/vendor/fonts/flags/1x1/us.svg'))
+                    ->descriptionColor(Color::Indigo)
+                    ->roundedIcon()
+                    ->ratioColor(Color::Green)
+                    ->ratioIcon('heroicon-s-chevron-up', IconPosition::Before)
+                    ->descriptionIcon('heroicon-s-currency-dollar', IconPosition::After)
+                    ->showProgress()
+                    ->progressColor(Color::Red)
+                ,
+                StatItem::make('Brazil', '$25k', 80)
+                    ->icon(asset('https://demos.pixinvent.com/vuexy-html-admin-template/assets/vendor/fonts/flags/1x1/br.svg'))
+                    ->roundedIcon()
+                    ->ratioColor(Color::Red)
+                    ->ratioIcon('heroicon-s-chevron-down', IconPosition::Before)
+                    ->descriptionIcon('heroicon-s-currency-dollar', IconPosition::After)
+                    ->showProgress()
+                ,
+            ];
+        }
+}

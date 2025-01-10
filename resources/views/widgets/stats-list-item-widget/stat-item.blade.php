@@ -8,6 +8,7 @@
     $ratioIcon = $getRatioIcon();
     $ratioColor = $getRatioColor() ?? 'gray';
     $showProgress = $getShowProgress();
+    $progressColor = $getProgressColor() ?? 'gray';
     $ratioIconPosition = $getRatioIconPosition();
     $descriptionIconPosition = $getDescriptionIconPosition();
     $tag = 'li';
@@ -116,8 +117,20 @@
         </div>
     </div>
     @if($showProgress)
-        <div class="flex-grow rounded-lg bg-gray-400 me-4" style="height:8px;">
-            <div class="rounded-lg bg-custom-500 shadow-lg" role="progressbar" style="width: {{ $getRatio() }}%; height: 8px;" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100">
+        <div class="flex-grow rounded-lg bg-gray-200 me-4" style="height: 8px;">
+            <div
+                class="rounded-lg bg-custom-600 dark:bg-custom-400 shadow-lg"
+                @style([
+                    'height:8px;',
+                    'width: ' . $getRatio() . '%;',
+                    'box-shadow: 0 .125rem .375rem 0 rgba(0, 186, 209, .3);',
+                    \Filament\Support\get_color_css_variables(
+                        $progressColor,
+                        shades: [400, 600],
+                        alias: 'widgets::stats-overview-widget.stat.progress',
+                    ) => $progressColor !== 'gray',
+                ])
+                role="progressbar" aria-valuenow="54" aria-valuemin="0" aria-valuemax="100">
             </div>
         </div>
     @endif
