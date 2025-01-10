@@ -37,7 +37,9 @@ class StatItem extends ViewComponent implements Htmlable
     protected string | array | null $descriptionColor = null;
 
     protected string | array | null $ratioColor = null;
+
     protected string | array | null $progressColor = null;
+
     protected bool $roundedIcon = false;
 
     protected bool $showProgress = false;
