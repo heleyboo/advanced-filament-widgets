@@ -14,6 +14,7 @@ use Illuminate\View\ComponentAttributeBag;
 class StatItem extends Component implements Htmlable
 {
     use Macroable;
+
     /**
      * @var string | array{50: string, 100: string, 200: string, 300: string, 400: string, 500: string, 600: string, 700: string, 800: string, 900: string, 950: string} | null
      */
@@ -24,18 +25,22 @@ class StatItem extends Component implements Htmlable
     protected string | Htmlable | null $description = null;
 
     protected ?string $descriptionIcon = null;
+
     protected ?string $ratioIcon = null;
 
     protected IconPosition | string | null $descriptionIconPosition = null;
+
     protected IconPosition | string | null $ratioIconPosition = null;
 
     /**
      * @var string | array{50: string, 100: string, 200: string, 300: string, 400: string, 500: string, 600: string, 700: string, 800: string, 900: string, 950: string} | null
      */
     protected string | array | null $descriptionColor = null;
+
     protected string | array | null $ratioColor = null;
     protected string | array | null $progressColor = null;
     protected bool $roundedIcon = false;
+
     protected bool $showProgress = false;
 
     /**
@@ -52,14 +57,14 @@ class StatItem extends Component implements Htmlable
     /**
      * @var scalar | Htmlable | Closure
      */
-    protected Closure|string|int|bool|Htmlable|float $value;
+    protected Closure | string | int | bool | Htmlable | float $value;
 
-    protected Closure|string|int|bool|Htmlable|float $ratio;
+    protected Closure | string | int | bool | Htmlable | float $ratio;
 
     /**
-     * @param scalar | Closure | Htmlable $value
+     * @param  scalar | Closure | Htmlable  $value
      */
-    final public function __construct(string | Htmlable $description, float|Htmlable|bool|int|Closure|string $value, float|Htmlable|bool|int|Closure|string $ratio)
+    final public function __construct(string | Htmlable $description, float | Htmlable | bool | int | Closure | string $value, float | Htmlable | bool | int | Closure | string $ratio)
     {
         $this->description($description);
         $this->value($value);
@@ -67,9 +72,9 @@ class StatItem extends Component implements Htmlable
     }
 
     /**
-     * @param scalar | Closure | Htmlable $value
+     * @param  scalar | Closure | Htmlable  $value
      */
-    public static function make(string | Htmlable $description, float|Htmlable|bool|int|Closure|string $value, float|Htmlable|bool|int|Closure|string $ratio): static
+    public static function make(string | Htmlable $description, float | Htmlable | bool | int | Closure | string $value, float | Htmlable | bool | int | Closure | string $ratio): static
     {
         return app(static::class, ['description' => $description, 'value' => $value, 'ratio' => $ratio]);
     }
@@ -91,14 +96,14 @@ class StatItem extends Component implements Htmlable
         return $this;
     }
 
-    public function roundedIcon(bool|Closure $rounded = true): static
+    public function roundedIcon(bool | Closure $rounded = true): static
     {
         $this->roundedIcon = $rounded;
 
         return $this;
     }
 
-    public function showProgress(bool|Closure $showProgress = true): static
+    public function showProgress(bool | Closure $showProgress = true): static
     {
         $this->showProgress = $showProgress;
 
@@ -176,16 +181,16 @@ class StatItem extends Component implements Htmlable
     }
 
     /**
-     * @param scalar | Closure | Htmlable $value
+     * @param  scalar | Closure | Htmlable  $value
      */
-    public function value(float|Htmlable|bool|int|Closure|string $value): static
+    public function value(float | Htmlable | bool | int | Closure | string $value): static
     {
         $this->value = $value;
 
         return $this;
     }
 
-    public function ratio(float|Htmlable|bool|int|Closure|string $ratio): static
+    public function ratio(float | Htmlable | bool | int | Closure | string $ratio): static
     {
         $this->ratio = $ratio;
 
@@ -275,15 +280,12 @@ class StatItem extends Component implements Htmlable
     /**
      * @return scalar | Htmlable | Closure
      */
-    public function getValue(): float|Closure|Htmlable|bool|int|string
+    public function getValue(): float | Closure | Htmlable | bool | int | string
     {
         return value($this->value);
     }
 
-    /**
-     * @return bool|Closure|float|Htmlable|int|string
-     */
-    public function getRatio(): float|Htmlable|bool|int|string|Closure
+    public function getRatio(): float | Htmlable | bool | int | string | Closure
     {
         return value($this->ratio);
     }
