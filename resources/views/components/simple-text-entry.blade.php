@@ -7,6 +7,7 @@
 <{{ $level }}
 {{
     $attributes
+        ->merge($getExtraAttributes(), escape: false)
         ->class([
             match ($color) {
                 'gray' => 'text-gray-600 dark:text-gray-400',

@@ -53,4 +53,13 @@ class SimpleIconEntry extends Entry
     {
         return $this->evaluate($this->size);
     }
+
+    public function getColor(): string | array | null
+    {
+        if ($this->getState() && is_string($this->color) && isset($this->getState()[$this->color])) {
+            return $this->getState()[$this->color];
+        }
+
+        return $this->evaluate($this->color) ?? $this->evaluate($this->defaultColor);
+    }
 }
