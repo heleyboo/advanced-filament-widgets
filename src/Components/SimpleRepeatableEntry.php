@@ -8,7 +8,6 @@ use Filament\Infolists\Components\RepeatableEntry;
 
 class SimpleRepeatableEntry extends RepeatableEntry
 {
-
     protected bool $list = false;
 
     protected string $view = 'advanced-filament-widgets::components.simple-repeatable-entry';
