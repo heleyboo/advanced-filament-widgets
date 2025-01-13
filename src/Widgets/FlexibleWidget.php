@@ -13,8 +13,8 @@ use Filament\Widgets\Widget;
 class FlexibleWidget extends Widget implements HasForms, HasInfolists
 {
     use CanPoll;
-    use InteractsWithInfolists;
     use InteractsWithForms;
+    use InteractsWithInfolists;
 
     protected ?string $heading = null;
 

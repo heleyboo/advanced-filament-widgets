@@ -10,6 +10,7 @@ class FlexContainer extends ComponentContainer
     protected string $view = 'advanced-filament-widgets::components.flex-container';
 
     protected bool | Closure $isList = false;
+
     protected bool | Closure $hasWrapper = true;
 
     public function list(bool | Closure $condition = false): static

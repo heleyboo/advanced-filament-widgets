@@ -4,8 +4,8 @@ namespace Heleyboo\AdvancedFilamentWidgets\Components;
 
 use Closure;
 use Filament\Infolists\ComponentContainer;
-use Filament\Support\Concerns\HasColor;
 use Filament\Infolists\Components\Group;
+use Filament\Support\Concerns\HasColor;
 use Illuminate\View\ComponentAttributeBag;
 
 class Flex extends Group
@@ -13,8 +13,11 @@ class Flex extends Group
     use HasColor;
 
     protected string $view = 'advanced-filament-widgets::components.flex';
+
     protected bool | Closure $isList = false;
+
     protected bool | Closure $hasChildComponentContainerWrapper = true;
+
     protected array $containerExtraAttributes = [];
 
     public function list(bool | Closure $condition = false): static
@@ -56,8 +59,6 @@ class Flex extends Group
     }
 
     /**
-     * @param array|Closure $attributes
-     * @param bool $merge
      * @return $this
      */
     public function containerExtraAttributes(array | Closure $attributes, bool $merge = false): static
@@ -71,9 +72,6 @@ class Flex extends Group
         return $this;
     }
 
-    /**
-     * @return array
-     */
     public function getContainerExtraAttributes(): array
     {
         $temporaryAttributeBag = new ComponentAttributeBag;
