@@ -1,23 +1,26 @@
 @php
     $level = $getLevel();
-    $color = $getColor();
+    $state = $getState();
+    $color = $getColor($state);
 @endphp
 
 <{{ $level }}
 {{
     $attributes
         ->class([
-            'headings-component',
             match ($color) {
                 'gray' => 'text-gray-600 dark:text-gray-400',
-                default => 'text-custom-500',
+                default => 'fi-color-custom text-custom-600 dark:text-custom-400',
             },
         ])
         ->style([
-            \Filament\Support\get_color_css_variables($color, [500]) => $color !== 'gray',
+            \Filament\Support\get_color_css_variables(
+                $color,
+                shades: [400, 600],
+            ) => $color !== 'gray',
         ])
 }}
 
 >
-{{ $getContent() }}
+{{ $formatState($state) }}
 </{{ $level }}>

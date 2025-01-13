@@ -16,11 +16,25 @@ class FlexibleWidget extends Widget implements HasForms, HasInfolists
     use InteractsWithInfolists;
     use InteractsWithForms;
 
+    protected ?string $heading = null;
+
+    protected ?string $description = null;
+
     protected static string $view = 'advanced-filament-widgets::widgets.flexible-widget';
 
-    private function infolist(Infolist $infolist)
+    private function infoList(Infolist $infoList): Infolist
     {
-        return $infolist->schema($this->getComponents())->state($this->getStates());
+        return $infoList->schema($this->getComponents())->state($this->getStates());
+    }
+
+    protected function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    protected function getHeading(): ?string
+    {
+        return $this->heading;
     }
 
     protected function getComponents(): array

@@ -84,4 +84,13 @@ class Flex extends Group
 
         return $temporaryAttributeBag->getAttributes();
     }
+
+    public function getColor(): string | array | null
+    {
+        if ($this->getState() && is_string($this->color) && isset($this->getState()[$this->color])) {
+            return $this->getState()[$this->color];
+        }
+
+        return $this->evaluate($this->color) ?? $this->evaluate($this->defaultColor);
+    }
 }

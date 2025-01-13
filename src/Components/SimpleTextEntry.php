@@ -3,13 +3,13 @@
 namespace Heleyboo\AdvancedFilamentWidgets\Components;
 
 use Closure;
-use Filament\Infolists\Components\Entry;
+use Filament\Infolists\Components\TextEntry;
 use Filament\Support\Colors\Color;
 use Filament\Support\Concerns\HasColor;
 
-class SimpleTextEntry extends Entry
+class SimpleTextEntry extends TextEntry
 {
-    use HasColor;
+//    use HasColor;
 
     protected string | int $level = 2;
 
@@ -31,10 +31,10 @@ class SimpleTextEntry extends Entry
         return $this;
     }
 
-    public function getColor(): array
-    {
-        return $this->evaluate($this->color) ?? Color::Amber;
-    }
+//    public function getColor(): array
+//    {
+//        return $this->evaluate($this->color) ?? Color::Amber;
+//    }
 
     public function getContent(): string
     {

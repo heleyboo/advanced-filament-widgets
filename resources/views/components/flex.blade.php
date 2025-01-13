@@ -1,6 +1,6 @@
 @php
     use Filament\Support\Enums\MaxWidth;
-    $tag = $isList() ? 'ul' : 'div';
+    $tag = $isList() ? 'li' : 'div';
     $color = $getColor();
 //    $attributes = $attributes
 //            ->merge([
@@ -16,7 +16,7 @@
         ->class([
             match ($color) {
                 'gray' => 'bg-gray-600 dark:bg-gray-400',
-                default => 'bg-custom-100 dark:bg-custom-200',
+                default => 'bg-custom-100 dark:bg-custom-200 medium:rounded-xl',
             },
         ])
         ->style([
