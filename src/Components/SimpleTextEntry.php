@@ -9,7 +9,7 @@ use Filament\Support\Concerns\HasColor;
 
 class SimpleTextEntry extends TextEntry
 {
-//    use HasColor;
+    //    use HasColor;
 
     protected string | int $level = 2;
 
@@ -31,10 +31,10 @@ class SimpleTextEntry extends TextEntry
         return $this;
     }
 
-//    public function getColor(): array
-//    {
-//        return $this->evaluate($this->color) ?? Color::Amber;
-//    }
+    //    public function getColor(): array
+    //    {
+    //        return $this->evaluate($this->color) ?? Color::Amber;
+    //    }
 
     public function getContent(): string
     {

@@ -12,6 +12,7 @@ class SimpleIconEntry extends Entry
     use HasColor;
 
     protected ?string $icon = null;
+
     protected bool $roundedIcon = false;
 
     protected IconEntrySize | string | Closure | null $size = null;
